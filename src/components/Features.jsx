@@ -1,58 +1,54 @@
 import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, BadgeDollarSign, Zap } from 'lucide-react';
+import { Shield, Zap, Gift } from 'lucide-react';
 
 const features = [
   {
-    icon: Sparkles,
-    title: 'Earn & Exchange',
-    desc: 'Collect credits through rewards and exchange them for high-quality items in a few taps.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Secure by Default',
-    desc: 'Bank-level security and encryption keep your transactions protected at all times.',
-  },
-  {
-    icon: BadgeDollarSign,
-    title: 'Best Value',
-    desc: 'Transparent pricing and fair exchange rates maximize your buying power.',
+    icon: Shield,
+    title: 'Secure by design',
+    desc: 'Strong encryption and transparent fees keep every swap safe.',
   },
   {
     icon: Zap,
-    title: 'Lightning Fast',
-    desc: 'Snappy performance with instant credit balance updates and notifications.',
+    title: 'Fast & simple',
+    desc: 'No clutter—just smooth, instant exchanges in a few taps.',
+  },
+  {
+    icon: Gift,
+    title: 'Give back easily',
+    desc: 'Auto-donate leftover credits to vetted causes you choose.',
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="relative py-24 bg-white dark:bg-neutral-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="features" className="relative py-16">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white text-center"
+          className="text-2xl md:text-3xl font-semibold text-pink-700"
         >
-          Designed for modern credit marketplaces
+          Why you’ll love it
         </motion.h2>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="rounded-2xl border border-neutral-200/70 dark:border-white/10 bg-white dark:bg-neutral-900 p-6 shadow-sm hover:shadow-md transition-shadow"
+              transition={{ delay: i * 0.08 }}
+              className="rounded-2xl border border-pink-100 bg-white/70 p-6 backdrop-blur hover:bg-white shadow-sm"
             >
-              <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-br from-orange-500/10 to-blue-600/10">
-                <f.icon className="h-6 w-6 text-orange-500" />
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-rose-400 to-pink-500 text-white">
+                  {<f.icon size={18} />}
+                </div>
+                <p className="font-medium text-pink-700">{f.title}</p>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-white">{f.title}</h3>
-              <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">{f.desc}</p>
+              <p className="mt-3 text-pink-800/80 text-sm">{f.desc}</p>
             </motion.div>
           ))}
         </div>

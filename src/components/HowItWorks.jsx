@@ -1,58 +1,38 @@
 import { motion } from 'framer-motion';
-import { Wallet, ArrowRightLeft, ShoppingCart, CheckCircle2 } from 'lucide-react';
 
 const steps = [
-  {
-    icon: Wallet,
-    title: 'Load credits',
-    desc: 'Earn through rewards or top up with your preferred payment method.',
-  },
-  {
-    icon: ArrowRightLeft,
-    title: 'Exchange',
-    desc: 'Swap credits for items or convert between categories instantly.',
-  },
-  {
-    icon: ShoppingCart,
-    title: 'Buy with credits',
-    desc: 'Checkout seamlessly using your balance with no hidden fees.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Enjoy',
-    desc: 'Track orders and unlock bonuses for every purchase you make.',
-  },
+  { step: '01', title: 'Create account', desc: 'Start with a simple signup.' },
+  { step: '02', title: 'Connect wallets', desc: 'Link platforms to move credits.' },
+  { step: '03', title: 'Swap & donate', desc: 'Exchange instantly and tip a cause.' },
+  { step: '04', title: 'Track impact', desc: 'See your history and donations.' },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="relative py-24 bg-white dark:bg-neutral-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="how" className="relative py-16">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white text-center"
+          className="text-2xl md:text-3xl font-semibold text-pink-700"
         >
           How it works
         </motion.h2>
 
-        <ol className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ol className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
           {steps.map((s, i) => (
             <motion.li
-              key={s.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={s.step}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="relative rounded-2xl border border-neutral-200/70 dark:border-white/10 bg-white dark:bg-neutral-900 p-6 shadow-sm"
+              transition={{ delay: i * 0.08 }}
+              className="rounded-2xl border border-pink-100 bg-white/70 p-6 backdrop-blur hover:bg-white"
             >
-              <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-br from-orange-500/10 to-blue-600/10">
-                <s.icon className="h-6 w-6 text-orange-500" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-white">{s.title}</h3>
-              <p className="mt-2 text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">{s.desc}</p>
+              <div className="text-xs font-semibold text-rose-500">{s.step}</div>
+              <div className="mt-1 font-medium text-pink-700">{s.title}</div>
+              <p className="mt-2 text-sm text-pink-800/80">{s.desc}</p>
             </motion.li>
           ))}
         </ol>

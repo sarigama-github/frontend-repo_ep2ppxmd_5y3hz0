@@ -2,30 +2,22 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import MarketplacePreview from './components/MarketplacePreview';
+import BackgroundAnimation from './components/BackgroundAnimation';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">
+    <div className="min-h-screen bg-white text-pink-900 relative">
+      <BackgroundAnimation />
       <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <MarketplacePreview />
-      </main>
-      <footer className="border-t border-black/5 dark:border-white/10 py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-neutral-600 dark:text-neutral-400 flex items-center justify-between">
-          <p>© {new Date().getFullYear()} CrediX. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-neutral-900 dark:hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-neutral-900 dark:hover:text-white">Terms</a>
-            <a href="#" className="hover:text-neutral-900 dark:hover:text-white">Contact</a>
-          </div>
+      <Hero />
+      <Features />
+      <HowItWorks />
+      <footer className="relative border-t border-pink-100 bg-white/70 backdrop-blur py-10 mt-10">
+        <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
+          <p className="text-sm text-pink-800/70">© {new Date().getFullYear()} CreditExchange</p>
+          <div className="text-sm text-pink-800/70">Built with love.</div>
         </div>
       </footer>
     </div>
   );
 }
-
-export default App;
